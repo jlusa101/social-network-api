@@ -57,12 +57,12 @@ const ThoughtSchema = new Schema({
 
 });
 
-// Retrieve total count of reactions on a thought
-ThoughtSchema.virtual('reactions').get(function() {
-    return this.friends.length;
-});
+// // Retrieve total count of reactions on a thought
+// ThoughtSchema.virtual('reactions').get(function() {
+//     return this.reactions.length;
+// });
 
 // Create the User model using the UserSchema
-const User = model('Thought', ThoughtSchema);
+const Thought = model('Thought', ThoughtSchema);
 
-module.exports = User;
+module.exports = Thought;

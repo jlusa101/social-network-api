@@ -16,6 +16,9 @@ router.post('/', ({ body }, res) => {
 // Retrieving all users
 router.get('/', (req, res) => {
     User.find({})
+        .populate({
+            path: 'thoughts'
+        })
         .then(userData => res.json(userData))
         .catch(err => res.status(400).json(err));
 });
