@@ -19,6 +19,9 @@ router.get('/', (req, res) => {
         .populate({
             path: 'thoughts'
         })
+        .populate({
+            path: 'friends'
+        })
         .then(userData => res.json(userData))
         .catch(err => res.status(400).json(err));
 });
@@ -84,9 +87,15 @@ router.post('/:userId/friends/:friendId', ({ params }, res) => {
 // Deletes a friend from user's friend array
 router.delete('/:userId/friends/:friendId', ({ params }, res) => {
     User.findOneAndUpdate({ _id: params.userId }, { $pull: { friends: params.friendId } }, { new: true })
-        .then(userData => res.json(userData))
-        .catch(err => res.json(err));
-})
+        .then(friendData => {
+            if (!friendData) {
+                res.status(404).json({ message: 'No friend found with this id!' });
+                return;
+            }
+            res.json(friendData);
+        })
+        .catch(err => res.status(400).json(err));
+});
 
 
 

@@ -1,4 +1,4 @@
-const { Schema, model } = require('mongoose');
+const { Schema, model, Types } = require('mongoose');
 const dateFormat = require('../utils/dateFormat');
 
 const ReactionSchema = new Schema({
@@ -57,10 +57,10 @@ const ThoughtSchema = new Schema({
 
 });
 
-// // Retrieve total count of reactions on a thought
-// ThoughtSchema.virtual('reactions').get(function() {
-//     return this.reactions.length;
-// });
+// Retrieve total count of reactions on a thought
+ThoughtSchema.virtual('reactionCount').get(function() {
+    return this.reactions.length;
+});
 
 // Create the User model using the UserSchema
 const Thought = model('Thought', ThoughtSchema);
