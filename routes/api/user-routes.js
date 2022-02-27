@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const User = require('../../models/User');
+const { User, Thought } = require('../../models');
 
 // Creating a user
 // example data
@@ -65,6 +65,11 @@ router.delete('/:id', ({ params }, res) => {
                 res.status(404).json({ message: 'No user found with this id!' });
                 return;
             }
+
+            // Once a user is deleted, all associated thoughts will be deleted from the database
+            return Thought.deleteMany({ username: { $in: userData.username } });
+        })
+        .then(userData => {
             res.json(userData);
         })
         .catch(err => res.status(400).json(err));
