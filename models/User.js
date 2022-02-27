@@ -1,3 +1,4 @@
+// Dependancies
 const { Schema, model } = require('mongoose');
 
 // Database schema to represent a User
