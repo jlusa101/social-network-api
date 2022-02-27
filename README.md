@@ -2,7 +2,7 @@
 
 ## Purpose
 
-Purpose of this assignment was to practice working with Express.js, a Mongo database, and Mongoose ODM.
+Purpose of this assignment was to practice working with Express.js, a Mongo database, and Mongoose ODM.  
 The purpose of these source files is to start an Express server that connects to a Mongo database. Using Mongoose ODM, the user is able to perform CRUD (create, read, update, delete) operations on two different database models(User, Thought) within the social network api.
 
 ## Installation
