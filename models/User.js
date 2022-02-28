@@ -5,15 +5,15 @@ const { Schema, model } = require('mongoose');
 const UserSchema = new Schema({
     username: {
         type: String,
-        unique: true,
-        required: true,
+        unique: [true, 'This username has alreaby been taken'],
+        required: [true, 'Username is required'],
         trim: true
     },
     email: {
         type: String,
-        required: true,
+        required: [true, 'Email is required'],
         match: /.+\@.+\..+/,
-        unique: true
+        unique: [true, 'An account with this email already exists']
     },
     thoughts: [{
         type: Schema.Types.ObjectId,

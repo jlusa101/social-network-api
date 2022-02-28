@@ -29,6 +29,8 @@ At this time, there is no front-end set up but all the routes can be tested usin
 
 ## Video
 
+https://drive.google.com/file/d/11wXTV6badAwtVf6QRjsZ8AYbZ6qRF8yJ/view?usp=sharing
+
 ## Contribution
 
 Made by Joona Lusa
